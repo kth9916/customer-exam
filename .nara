@@ -1,0 +1,15 @@
+#Wed May 10 02:24:38 KST 2023
+createEmbed=false
+createMashup=false
+dbHost=localhost
+dbName=
+dbPassword=
+dbPort=9999
+dbUsername=
+groupId=io.naraway
+projectBuild=Gradle
+projectStyle=DramaBackend
+projectTemplate=CQRS
+publicModule=false
+skipEvent=false
+storeType=MongoDB
