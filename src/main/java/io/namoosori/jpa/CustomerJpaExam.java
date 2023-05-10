@@ -1,10 +1,9 @@
 package io.namoosori.jpa;
 
 import io.namoosori.jpa.entity.Customer;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 public class CustomerJpaExam {
 
@@ -16,12 +15,19 @@ public class CustomerJpaExam {
         tx.begin();
 
         try {
-//            Customer customer = new Customer("ID0004", "Hoo");
-//            em.persist(customer); // INSERT X
 
-            Customer customer4 = em.find(Customer.class, "ID0001");
-//            customer4.setName("soo");
-            System.out.println(customer4.toString());
+            /* @GeneratedValue(strategy = GenerationType.IDENTITY) 일 때 */
+            Customer customer = new Customer(); // 비영속 상태(new)
+            customer.setName("kim");
+            customer.setRegisterDate(System.currentTimeMillis());
+            em.persist(customer);   // 영속 상태 (Managed)
+
+            System.out.println(customer.getName());
+
+            System.out.println("=========before commit=========");
+
+            System.out.println(customer.getName());
+
 
             tx.commit();
 
