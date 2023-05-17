@@ -16,18 +16,14 @@ public class CustomerJpaExam {
 
         try {
 
-            /* @GeneratedValue(strategy = GenerationType.IDENTITY) 일 때 */
-            Customer customer = new Customer(); // 비영속 상태(new)
-            customer.setName("kim");
-            customer.setRegisterDate(System.currentTimeMillis());
-            em.persist(customer);   // 영속 상태 (Managed)
-
-            System.out.println(customer.getName());
+            for(int i = 0; i < 100; i++){
+                Customer customer = new Customer(); // 비영속 상태(new)
+                customer.setName("kim");
+                customer.setRegisterDate(System.currentTimeMillis());
+                em.persist(customer);   // 영속 상태 (Managed)
+            }
 
             System.out.println("=========before commit=========");
-
-            System.out.println(customer.getName());
-
 
             tx.commit();
 
@@ -40,3 +36,4 @@ public class CustomerJpaExam {
         emf.close();
     }
 }
+
